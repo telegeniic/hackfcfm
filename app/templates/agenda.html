@@ -1,14 +1,124 @@
 {% extends "inicio.html" %}
 {% block content %}
-   
+   <style type="table">
+    table {
+  border-collapse: separate;
+}
+</style>
       <table align="center" width="800" cellspacing="1" cellpadding="3" border="0" bgcolor="midnightblue">
 <tr>
     <td bgcolor="#86aad2">
         <center>
-            <img src="Bison.png" width="200" height="200" alt="100">
-            <h1>AGENDA BISONTE</h1>
-        </center>
+            <h1>Horario Bisonte</h1>
+        
         <br><br><br><br>
+            <div align="center">
+                <body>
+                    Hora de Entrada:&nbsp;&nbsp;
+                    <select name=Entradas method="GET" action="/">
+                    {% for E in Entradas %}
+                    <option value="{{E}}" SELECTED>{{E}}</option>
+                    {% endfor %}
+                    </select>
+                </body>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div align="center">
+                 <body>
+                     Hora de Salida:&nbsp;&nbsp;
+                    <select name=Salidas method="GET" action="/">
+                    {% for S in Salidas %}
+                    <option value="{{S}}" SELECTED>{{S}}</option>
+                    {% endfor %}
+                    </select>
+                </body>
+            </div>
+            
+            <br><br>
+            
+<table border="1">
+  <tr>
+    <th scope="col" bgcolor="dodgerblue">Horas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Lunes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Martes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Miercoles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Jueves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Viernes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th scope="col" bgcolor="dodgerblue">Sábado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+
+  <tr>
+    <td bgcolor="lightblue">7:00 am-8:00 am</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+
+  <tr>
+    <td bgcolor="lightblue">8:00 am-9:00 am</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+
+  <tr>
+    <td bgcolor="lightblue">9:00 am-10:00 am</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+
+  <tr>
+    <td bgcolor="lightblue">11:00 am-12:00 pm</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+                
+  <tr>
+    <td bgcolor="lightblue">12:00 pm-1:00 pm</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+                
+  <tr>
+    <td bgcolor="lightblue">1:00 pm-2:00 pm</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+                
+  <tr>
+    <td bgcolor="lightblue">2:00 pm-3:00 pm</td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+    <td bgcolor="whitesmoke"></td>
+  </tr>
+                
+</table>
+            </center>
    </td>
 </tr>
 </table>
