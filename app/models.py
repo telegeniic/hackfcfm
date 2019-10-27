@@ -24,7 +24,8 @@ class Grupo(db.Model):
     id = db.Column(db.Integer, primary_key= True) #es su propio id
     CVE_MAT = db.Column(db.Integer, unique= True)
     CVE_HORA = db.Column(db.Integer, unique= True)
-
+    Mat_1 = db.Column(db.Integer)
+    
     def __repr__(self):
         return '<Grupo {}>'.format(self.Grupo)
 
