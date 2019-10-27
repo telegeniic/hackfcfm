@@ -36,6 +36,7 @@
           </form>
             <br><br>
             
+{% if entrada != salida and salida > entrada %}
 <table border="1">
   <tr>
     <th scope="col" bgcolor="dodgerblue">Horas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -49,62 +50,71 @@
 
   <tr>
     <td bgcolor="lightblue">7:00 am-8:00 am</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% if entrada == 700 %}
+    {% for pri in primera %}
+    <td bgcolor="whitesmoke">{{pri}}</td>
+    {% endfor %}
+    {% endif %}
   </tr>
 
   <tr>
     <td bgcolor="lightblue">8:00 am-9:00 am</td>
+    {% if entrada <= 800 %}
     {% for seg in segunda  %}
     <td bgcolor="whitesmoke">{{seg}}</td>
     {% endfor %}
+    {% endif %}
   </tr>
 
   <tr>
     <td bgcolor="lightblue">9:00 am-10:00 am</td>
+    {% if entrada <= 900 %}
     {% for ter in tercera  %}
     <td bgcolor="whitesmoke">{{ter}}</td>
     {% endfor %}
-
+    {% endif %}
   </tr>
 
   <tr>
     <td bgcolor="lightblue">11:00 am-12:00 pm</td>
+    {% if entrada <= 1100 %}
     {% for cuar in cuarta  %}
     <td bgcolor="whitesmoke">{{cuar}}</td>
     {% endfor %}
-
+    {% endif %}
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">12:00 pm-1:00 pm</td>
+    {% if entrada <= 1200 %}
     {% for quin in quinta  %}
     <td bgcolor="whitesmoke">{{quin}}</td>
     {% endfor %}
-
+    {% endif %}
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">1:00 pm-2:00 pm</td>
+    {% if salida == 1500 %}
     {% for sext in sexta  %}
     <td bgcolor="whitesmoke">{{sext}}</td>
     {% endfor %}
-
+    {% endif %}
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">2:00 pm-3:00 pm</td>
+    {% if salida == 1500 %}
     {% for sept in septima %}
     <td bgcolor="whitesmoke">{{sept}}</td>
     {% endfor %}
-
+    {% endif %}
   </tr>
                 
 </table>
+{% else %}
+<h1>La hora de salida y de entrada no puedes ser iguales o la salida antes de entrar</h1>
+{% endif %}
             </center>
    </td>
     
