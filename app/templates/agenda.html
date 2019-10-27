@@ -12,10 +12,11 @@
             <h1>Horario Bisonte</h1>
         
         <br><br><br><br>
+        <form method="POST" action="/submitagenda">
             <div align="center">
                 <body>
                     Hora de Entrada:&nbsp;&nbsp;
-                    <select name=Entradas method="GET" action="/">
+                    <select name="Entradas" method="GET" action="/" placeholder="Entrada">
                     {% for E in Entradas %}
                     <option value="{{E}}" SELECTED>{{E}}</option>
                     {% endfor %}
@@ -26,14 +27,15 @@
             <div align="center">
                  <body>
                      Hora de Salida:&nbsp;&nbsp;
-                    <select name=Salidas method="GET" action="/">
+                    <select name="Salidas" method="GET" action="/" placeholder="Salida">
                     {% for S in Salidas %}
                     <option value="{{S}}" SELECTED>{{S}}</option>
                     {% endfor %}
                     </select>
                 </body>
+                <input class="btn" type="submit" value="Hacer Horario" >
             </div>
-            
+          </form>
             <br><br>
             
 <table border="1">

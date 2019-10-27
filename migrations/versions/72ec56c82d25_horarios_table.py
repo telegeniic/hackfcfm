@@ -1,8 +1,8 @@
-"""grupo table
+"""horarios table
 
-Revision ID: dffc408ca62d
+Revision ID: 72ec56c82d25
 Revises: 
-Create Date: 2019-10-27 01:43:26.072650
+Create Date: 2019-10-27 04:41:22.166268
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dffc408ca62d'
+revision = '72ec56c82d25'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -114,13 +114,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['miercoles.id'], ['miercoles.id'], ),
     sa.PrimaryKeyConstraint('horario.id', 'miercoles.id')
     )
-    op.create_table('sabadoh',
-    sa.Column('horario.id', sa.Integer(), nullable=False),
-    sa.Column('sabado.id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['horario.id'], ['horario.id'], ),
-    sa.ForeignKeyConstraint(['sabado.id'], ['sabado.id'], ),
-    sa.PrimaryKeyConstraint('horario.id', 'sabado.id')
-    )
     op.create_table('viernesh',
     sa.Column('horario.id', sa.Integer(), nullable=False),
     sa.Column('viernes.id', sa.Integer(), nullable=False),
@@ -150,7 +143,6 @@ def downgrade():
     op.drop_table('materiasg')
     op.drop_table('aulasg')
     op.drop_table('viernesh')
-    op.drop_table('sabadoh')
     op.drop_table('miercolesh')
     op.drop_table('materias')
     op.drop_table('martesh')

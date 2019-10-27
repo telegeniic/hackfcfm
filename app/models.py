@@ -54,21 +54,14 @@ viernes = db.Table("viernesh",\
                 db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
                 db.Column("viernes.id", db.Integer, db.ForeignKey("viernes.id"), primary_key = True)
                 )
-sabado = db.Table("sabadoh",\
-                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
-                db.Column("sabado.id", db.Integer, db.ForeignKey("sabado.id"), primary_key = True)
-                )
     
 class Horario(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    lunes = db.relationship("lunesrs", secondary = lunes, lazy="subquery", backref=db.backref("horario", lazy=True))
-    martes = db.relationship("martesrs", secondary = martes, lazy="subquery", backref=db.backref("horario", lazy=True))
-    miercoles = db.relationship("miercolesrs", secondary = miercoles, lazy="subquery", backref=db.backref("horario", lazy=True))
-    jueves = db.relationship("juevesrs", secondary = jueves, lazy="subquery", backref=db.backref("horario", lazy=True))
-    viernes = db.relationship("viernesrs", secondary = viernes, lazy="subquery", backref=db.backref("horario", lazy=True))
-    sabado = db.relationship("sabadors", secondary = sabado, lazy="subquery", backref=db.backref("horario", lazy=True))
-
-
+    lunes = db.relationship("Lunes", secondary = lunes, lazy="subquery", backref=db.backref("horario", lazy=True))
+    martes = db.relationship("Martes", secondary = martes, lazy="subquery", backref=db.backref("horario", lazy=True))
+    miercoles = db.relationship("Miercoles", secondary = miercoles, lazy="subquery", backref=db.backref("horario", lazy=True))
+    jueves = db.relationship("Jueves", secondary = jueves, lazy="subquery", backref=db.backref("horario", lazy=True))
+    viernes = db.relationship("Viernes", secondary = viernes, lazy="subquery", backref=db.backref("horario", lazy=True))
 
 aulas = db.Table("aulasg",\
                 db.Column("grupo.id", db.Integer, db.ForeignKey("grupo.id"), primary_key = True), \
@@ -83,8 +76,8 @@ materias = db.Table("materiasg",\
 class Grupo(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     horario = db.Column(db.Integer, db.ForeignKey('horario.id'), nullable = False)
-    aulas = db.relationship("aulasrs", secondary = aulas, lazy="subquery", backref=db.backref("grupo", lazy = True))
-    materias = db.relationship("materiasrs", secondary = materias, lazy="subquery", backref=db.backref("grupo", lazy = True))
+    aulas = db.relationship("Aulas", secondary = aulas, lazy="subquery", backref=db.backref("grupo", lazy = True))
+    materias = db.relationship("Materia", secondary = materias, lazy="subquery", backref=db.backref("grupo", lazy = True))
   
 
 
@@ -101,7 +94,7 @@ materia = db.Table("materias", \
 class Materia(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     Nombre = db.Column(db.String(20))
-    materia = db.relationship("mater", secondary = materia, lazy="subquery", backref=db.backref("materias", lazy = True))
+    materia = db.relationship("Maestro", secondary = materia, lazy="subquery", backref=db.backref("materias", lazy = True))
                                           
 class Maestro(db.Model):
     id = db.Column(db.Integer, primary_key = True)

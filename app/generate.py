@@ -1,7 +1,5 @@
-from app import models
-
 class Generate():
-    def entradasIguales(clases):
+    def entradasIguales(self, clases):
         if (clases.Horario.Lunes.entrada == \
             clases.Horario.Martes.entrada == \
             clases.Horario.Miercoles.entrada == \
@@ -12,7 +10,7 @@ class Generate():
         else:
             return False
 
-    def salidasIguales(clases):
+    def salidasIguales(self, clases):
         if (clases.Horario.Lunes.salida == \
             clases.Horario.Martes.salida == \
             clases.Horario.Miercoles.salida == \
