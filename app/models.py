@@ -1,72 +1,108 @@
 from app import db
 
-class Materia(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    Nombre_M = db.Column(db.String(64))
-    Plan = db.Column(db.String(64))
-    Requisitos = db.Column(db.Integer)
+class Lunes(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)
+    
+    
+class Martes(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)
+    
+    
+class Miercoles(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)
+    
+class Jueves(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)
+    
+    
+class Viernes(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)   
+    
+    
+class Sabado(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Entrada = db.Column(db.Integer)
+    Salida = db.Column(db.Integer)
+    
+lunes = db.Table("lunesh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("lunes.id", db.Integer, db.ForeignKey("lunes.id"), primary_key = True)
+                )
+martes = db.Table("martesh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("martes.id", db.Integer, db.ForeignKey("martes.id"), primary_key = True)
+                )
+miercoles = db.Table("miercolesh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("miercoles.id", db.Integer, db.ForeignKey("miercoles.id"), primary_key = True)
+                )
+jueves = db.Table("juevesh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("jueves.id", db.Integer, db.ForeignKey("jueves.id"), primary_key = True)
+                )
+viernes = db.Table("viernesh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("viernes.id", db.Integer, db.ForeignKey("viernes.id"), primary_key = True)
+                )
+sabado = db.Table("sabadoh",\
+                db.Column('horario.id', db.Integer, db.ForeignKey("horario.id"), primary_key = True),\
+                db.Column("sabado.id", db.Integer, db.ForeignKey("sabado.id"), primary_key = True)
+                )
+    
+class Horario(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    lunes = db.relationship("lunesrs", secondary = lunes, lazy="subquery", backref=db.backref("horario", lazy=True))
+    martes = db.relationship("martesrs", secondary = martes, lazy="subquery", backref=db.backref("horario", lazy=True))
+    miercoles = db.relationship("miercolesrs", secondary = miercoles, lazy="subquery", backref=db.backref("horario", lazy=True))
+    jueves = db.relationship("juevesrs", secondary = jueves, lazy="subquery", backref=db.backref("horario", lazy=True))
+    viernes = db.relationship("viernesrs", secondary = viernes, lazy="subquery", backref=db.backref("horario", lazy=True))
+    sabado = db.relationship("sabadors", secondary = sabado, lazy="subquery", backref=db.backref("horario", lazy=True))
 
-    def __repr__(self):
-        return '<Materia {}>'.format(self.Materia)
 
-class Requisito(db.Model):  
-    id = db.Column(db.Integer, primary_key= True)
-    Mat_1 = db.Column(db.Integer)
-    Mat_2 = db.Column(db.Integer)
-    Mat_3 = db.Column(db.Integer)
-    Mat_4 = db.Column(db.Integer)
-    Mat_5 = db.Column(db.Integer)
 
-    def __repr__(self):
-        return '<Requisito {}>'.format(self.Requisito)
+aulas = db.Table("aulasg",\
+                db.Column("grupo.id", db.Integer, db.ForeignKey("grupo.id"), primary_key = True), \
+                db.Column("aulas.id", db.Integer, db.ForeignKey("aulas.id"), primary_key = True)
+                )
+materias = db.Table("materiasg",\
+                db.Column("grupo.id", db.Integer, db.ForeignKey("grupo.id"), primary_key = True), \
+                db.Column("materia.id", db.Integer, db.ForeignKey("materia.id"), primary_key = True)
+                )
+
 
 class Grupo(db.Model):
-    id = db.Column(db.Integer, primary_key= True) #es su propio id
-    CVE_MAT = db.Column(db.Integer, unique= True)
-    CVE_HORA = db.Column(db.Integer, unique= True)
-    Mat_1 = db.Column(db.Integer)
+    id = db.Column(db.Integer, primary_key = True)
+    horario = db.Column(db.Integer, db.ForeignKey('horario.id'), nullable = False)
+    aulas = db.relationship("aulasrs", secondary = aulas, lazy="subquery", backref=db.backref("grupo", lazy = True))
+    materias = db.relationship("materiasrs", secondary = materias, lazy="subquery", backref=db.backref("grupo", lazy = True))
+  
+
+
+class Aulas(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Nombre = db.Column(db.String(5))
     
-    def __repr__(self):
-        return '<Grupo {}>'.format(self.Grupo)
 
-class Hora(db.Model):
-    id = db.Column(db.Integer, primary_key= True) #es su propio id
-    Entrada = db.Column(db.String(5))
-    Salida = db.Column(db.String(5))
-
-    def __repr__(self):
-        return '<Hora {}>'.format(self.Hora)
-
-class Dias(db.Model):
-    id = db.Column(db.Integer, primary_key= True)
-    Lunes = db.Column(db.Integer )
-    Martes = db.Column(db.Integer )
-    Miercoles = db.Column(db.Integer )
-    Jueves = db.Column(db.Integer )
-    Viernes = db.Column(db.Integer )
-    Sabado = db.Column(db.Integer )
-
-    def __repr__(self):
-        return '<Dias {}>'.format(self.Dias)
-
-class Salones(db.Model):
-    id = db.Column(db.Integer, primary_key= True)
-    Lunes = db.Column(db.String(5) )
-    Martes = db.Column(db.String(5) )
-    Miercoles = db.Column(db.String(5) )
-    Jueves = db.Column(db.String(5) )
-    Viernes = db.Column(db.String(5) )
-    Sabado = db.Column(db.String(5) )
-
-    def __repr__(self):
-        return '<Salones {}>'.format(self.Salones)
-
-class Horario(db.Model):
-     id = db.Column(db.Integer, primary_key= True)
-     CVE_GPO = db.Column(db.Integer)
-     CVE_DIAS = db.Column(db.Integer)
-     CVE_SALONES = db.Column(db.Integer)
-
-     def __repr__(self):
-         return '<Horario {}>'.format(self.Horario)
-
+materia = db.Table("materias", \
+    db.Column("materias.id", db.Integer, db.ForeignKey("materia.id"), primary_key = True), \
+    db.Column("maestro.id", db.Integer, db.ForeignKey("maestro.id"), primary_key = True) \
+    )
+                   
+class Materia(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Nombre = db.Column(db.String(20))
+    materia = db.relationship("mater", secondary = materia, lazy="subquery", backref=db.backref("materias", lazy = True))
+                                          
+class Maestro(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    Nombre = db.Column(db.String(20))
