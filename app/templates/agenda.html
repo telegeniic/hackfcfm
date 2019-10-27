@@ -56,62 +56,49 @@
 
   <tr>
     <td bgcolor="lightblue">8:00 am-9:00 am</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for seg in segunda  %}
+    <td bgcolor="whitesmoke">{{seg}}</td>
+    {% endfor %}
   </tr>
 
   <tr>
     <td bgcolor="lightblue">9:00 am-10:00 am</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for ter in tercera  %}
+    <td bgcolor="whitesmoke">{{ter}}</td>
+    {% endfor %}
+
   </tr>
 
   <tr>
     <td bgcolor="lightblue">11:00 am-12:00 pm</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for cuar in cuarta  %}
+    <td bgcolor="whitesmoke">{{cuar}}</td>
+    {% endfor %}
+
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">12:00 pm-1:00 pm</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for quin in quinta  %}
+    <td bgcolor="whitesmoke">{{quin}}</td>
+    {% endfor %}
+
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">1:00 pm-2:00 pm</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for sext in sexta  %}
+    <td bgcolor="whitesmoke">{{sext}}</td>
+    {% endfor %}
+
   </tr>
                 
   <tr>
     <td bgcolor="lightblue">2:00 pm-3:00 pm</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for sept in septima %}
+    <td bgcolor="whitesmoke">{{sept}}</td>
+    {% endfor %}
+
   </tr>
                 
 </table>
