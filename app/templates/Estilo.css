@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
 body {
-	color: blue;
+	background-color: darkgray;
+    color: crimson;
+    font-family:monospace;
+    margin: 0 4px 0 0;
+    border: 12px solid;
 }
-</style>
-</head>
