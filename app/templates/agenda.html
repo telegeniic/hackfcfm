@@ -9,14 +9,8 @@
 <tr>
     <td bgcolor="#86aad2">
         <center>
-<<<<<<< HEAD
-            <h1>Horario Bisonte</h1>
-        
-        <br><br><br><br>
-        <form method="POST" action="/submitagenda">
-=======
         <br><br>
->>>>>>> cc9e23e5728900b720ff452c9427e5bb934ea882
+        <form action="/submitagenda" method="POST">
             <div align="center">
                 <body>
                     Hora de Entrada:&nbsp;&nbsp;
@@ -55,12 +49,9 @@
 
   <tr>
     <td bgcolor="lightblue">7:00 am-8:00 am</td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
-    <td bgcolor="whitesmoke"></td>
+    {% for prim in primera  %}
+    <td bgcolor="whitesmoke">{{prim}}</td>
+    {% endfor %}
   </tr>
 
   <tr>

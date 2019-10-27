@@ -1,22 +1,19 @@
-class Generate():
-    def entradasIguales(self, clases):
-        if (clases.Horario.Lunes.entrada == \
-            clases.Horario.Martes.entrada == \
-            clases.Horario.Miercoles.entrada == \
-            clases.Horario.Jueves.entrada == \
-            clases.Horario.Viernes.entrada 
-        ):
-            return True
-        else:
-            return False
+from app import db
+from app.models import *
 
-    def salidasIguales(self, clases):
-        if (clases.Horario.Lunes.salida == \
-            clases.Horario.Martes.salida == \
-            clases.Horario.Miercoles.salida == \
-            clases.Horario.Jueves.salida == \
-            clases.Horario.Viernes.salida 
-        ):
-            return True
-        else:
-            return False
+class Contruir():
+    clases = []
+    grupos = []
+
+    def construct(self, Hi, Hf):
+        dH = Hf - Hi
+        i = 0
+        while len(clases) != dH :
+            group = Grupo.query.get(i)
+            
+            if group.horario.lunes.empieza() > Hi:
+                grupos.append(group.id)
+                clases.append(Materia.query.get(group.materia()))
+                i += 1
+        return clases
+
