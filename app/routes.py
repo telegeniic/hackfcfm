@@ -13,15 +13,6 @@ def home():
     llenar()
     return render_template('index.html')
 
-@app.route('/signin')
-def registrar():
-    return '<h1>Pagina de registro</h1>'
-
-@app.route('/login')
-def inicarSecion():
-    form = LoginForm()
-    return render_template('login.html', form=form)
-
 @app.route('/agenda')
 def dropdown():
     
