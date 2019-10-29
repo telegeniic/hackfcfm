@@ -6,35 +6,32 @@
 }
 </style>
       <table align="center" width="800" cellspacing="1" cellpadding="3" border="0" bgcolor="midnightblue">
-<tr>
-    <td bgcolor="#86aad2">
-        <center>
-        <br><br>
-        <form action="/submitagenda" method="POST">
-            <div align="center">
-                <body>
-                    Hora de Entrada:&nbsp;&nbsp;
-                    <select name="Entradas" method="GET" action="/" placeholder="Entrada">
-                    {% for E in Entradas %}
-                    <option value="{{E}}" SELECTED>{{E}}</option>
-                    {% endfor %}
-                    </select>
-                </body>
-            </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <div align="center">
-                 <body>
-                     Hora de Salida:&nbsp;&nbsp;
-                    <select name="Salidas" method="GET" action="/" placeholder="Salida">
-                    {% for S in Salidas %}
-                    <option value="{{S}}" SELECTED>{{S}}</option>
-                    {% endfor %}
-                    </select>
-                </body>
-                <input class="btn" type="submit" value="Hacer Horario" >
-            </div>
-          </form>
-            <br><br>
+        <tr>
+            <td bgcolor="#86aad2">
+                <center>
+                <br><br>
+                <form action="/submitagenda" method="POST">
+                    <div align="left">
+                        <body>
+                            Hora de Entrada:
+                            <select name="Entradas" method="GET" action="/" placeholder="Entrada">
+                            {% for E in Entradas %}
+                            <option value="{{E}}" SELECTED>{{E}}</option>
+                            {% endfor %}
+                            </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             Hora de Salida
+                            <select name="Salidas" method="GET" action="/" placeholder="Salida">
+                            {% for S in Salidas %}
+                            <option value="{{S}}" SELECTED>{{S}}</option>
+                            {% endfor %}
+                            </select>
+                        </body>
+                        <br><br>
+                        <input class="btn" type="submit" value="Hacer Horario" >
+                    </div>
+                  </form>
+                    <br><br>
             
 <table border="1">
   <tr>
